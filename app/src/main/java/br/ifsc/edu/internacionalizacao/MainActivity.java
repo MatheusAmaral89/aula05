@@ -20,22 +20,39 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        listView = findViewById(R.id.listView);
+        listView  = findViewById(R.id.listView);
 
         final ArrayList<String> lista_frutinhas = new ArrayList<>();
+        final ArrayList<String> lista_botao = new ArrayList<>();
 
         lista_frutinhas.add("maça");
         lista_frutinhas.add("pera");
         lista_frutinhas.add("uva");
         lista_frutinhas.add("melancia");
 
+        lista_botao.add("Button");
+        lista_botao.add("RadioButton");
+        lista_botao.add("ImageButton");
+        lista_botao.add("CheckBox");
+        lista_botao.add("RatingBar");
+        lista_botao.add("ToogleButton");
+        lista_botao.add("DatePicker");
+        lista_botao.add("AlertDialog");
+
         ArrayAdapter<String> adapter;
+        ArrayAdapter<String> adapterT;
 
         adapter = new ArrayAdapter<String>(getApplicationContext(),
                 android.R.layout.simple_list_item_1,
                 android.R.id.text1,
                 lista_frutinhas
                 );
+
+        adapterT = new ArrayAdapter<String>(getApplicationContext(),
+                android.R.layout.simple_list_item_1,
+                android.R.id.text1,
+                lista_botao
+        );
 
         listView.setAdapter(adapter);
 
@@ -46,8 +63,23 @@ public class MainActivity extends AppCompatActivity {
 
                 Intent intent = new Intent(MainActivity.this, ComponenteView.class);
 
+                intent.putExtra("fruta", lista_frutinhas.get(i));
+
                 startActivity(intent);
             }
         });
+
+
+
+        //Button
+        //RadioButton
+        //ImageButton
+        //CheckBox
+        //RatingBar
+        //ToogleButton
+        //DatePicker
+        //AlertDialog
+
+
     }
 }
